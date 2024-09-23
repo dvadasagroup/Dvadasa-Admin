@@ -2,7 +2,9 @@ import { DataTable } from "@/components/custom ui/DataTable";
 import { columns } from "@/components/orderItems/OrderItemsColums";
 
 const OrderDetails = async ({ params }: { params: { orderId: string } }) => {
-  const res = await fetch(`http://localhost:3000/api/orders/${params.orderId}`);
+  const res = await fetch(
+    `${process.env.ECOMMERCE_STORE_URL}/api/orders/${params.orderId}`
+  );
   const { orderDetails, customer } = await res.json();
 
   // console.log(orderDetails);
